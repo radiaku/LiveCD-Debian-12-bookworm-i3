@@ -21,7 +21,7 @@
 #git clone git://git.wincent.com/command-t.git /home/user/.vim/ruby/command-t/
 
 # install nerdtree
-curl -sS https://webi.sh/vim-nerdtree | sh
+# curl -sS https://webi.sh/vim-nerdtree | sh
 
 xrandr -s 1920x1080
 
