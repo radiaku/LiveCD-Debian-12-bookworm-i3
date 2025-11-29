@@ -93,7 +93,6 @@ fzf
 fd-find
 ripgrep
 tmux
-lazygit
 polybar
 rofi
 dmenu
