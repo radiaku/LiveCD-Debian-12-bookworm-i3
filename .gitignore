@@ -18,3 +18,4 @@ wget-log*
 *.contents
 *.packages
 binary.modified_timestamps
+.lock
