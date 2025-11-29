@@ -25,5 +25,10 @@ Feel free to change the configurationen fitting to your needs and wishes. There 
 
 Feel free to make changes to i3config to fit the system to your needs and wishes.
 
+Inside live cd, if you want installer run this:
+```
+sudo debian-installer-launcher
+```
+
 
 Credit to [ananke](https://codeberg.org/ananke/Live-Debian-12-bookworm-i3)
