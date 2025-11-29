@@ -13,9 +13,13 @@ During boot you can choose between boot into Live System (more information about
 To build the live-linux ISO make sure live-build is installed on your machine. 
 
 You can start the build process with 
-``make`` 
+```sh
+make
+``` 
 or 
-``sudo make``
+```sh
+sudo make
+```
 
 Feel free to change the configurationen fitting to your needs and wishes. There for change the makefile (more information about makefile: https://makefiletutorial.com/), add or remove packages listed inside packages.list or change the configurations for vim (vimrc) and bash (.bashrc, bash_profile).
 
