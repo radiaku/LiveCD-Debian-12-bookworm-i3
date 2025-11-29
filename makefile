@@ -73,13 +73,13 @@ install_lightdm:
 
 copy_files:
 	cp .bashrc $(SKEL)/.bashrc
-	cp i3config $(SKEL)/.config/i3/config
-	cp kraut.png $(SKEL)/.config/i3/
+	#cp i3config $(SKEL)/.config/i3/config
+	#cp kraut.png $(SKEL)/.config/i3/
 
-	echo "exec --no-startup-id feh --bg-scale ~/.config/i3/kraut.png" >> $(SKEL)/.config/i3/config
+	#echo "exec --no-startup-id feh --bg-scale ~/.config/i3/kraut.png" >> $(SKEL)/.config/i3/config
 
 	cp -r /usr/share/live/build/bootloaders config/
-	cp My_cephei_pxi.png config/bootloaders/grub-pc/splash.png
+	#cp My_cephei_pxi.png config/bootloaders/grub-pc/splash.png
 
 build_iso:
 	sudo lb clean --all
