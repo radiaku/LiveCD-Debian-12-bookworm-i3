@@ -14,9 +14,12 @@ chroot.packages.live
 build.log
 wget-log*
 *.iso
+*.live
+*.install
 *.files
 *.contents
 *.packages
 binary.modified_timestamps
 .lock
 installer_firmware_details.txt
+exclude
