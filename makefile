@@ -11,7 +11,8 @@ POLYBAR_REPO = https://github.com/radiaku/polybarconfig.git
 I3CONF_SRC = build/i3config
 POLYBAR_SRC = build/polybarconfig
 
-all: clean prepare fetch_vimrc fetch_i3 fetch_polybar install_vimrc install_i3 install_polybar install_lightdm install_fonts copy_files build_iso
+all: clean prepare fetch_vimrc fetch_i3 fetch_polybar install_vimrc install_i3 install_polybar install_lightdm install_fonts install_grub_font copy_files build_iso
+
 
 prepare:
 	mkdir -p $(SKEL)/.config/i3
@@ -30,6 +31,18 @@ install_fonts:
 
 	# Unzip into LiveCD filesystem
 	unzip -o build/Iosevka.zip -d config/includes.chroot/usr/share/fonts/truetype/IosevkaNerdFont
+
+install_grub_font:
+	@echo ">>> Generating GRUB Unicode font..."
+	mkdir -p build/grubfonts
+
+	# Generate unicode.pf2 using a reliable TTF
+	grub-mkfont -o build/grubfonts/unicode.pf2 /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+
+	@echo ">>> Installing GRUB Unicode font into ISO"
+	mkdir -p config/includes.binary/boot/grub/fonts
+	cp build/grubfonts/unicode.pf2 config/includes.binary/boot/grub/fonts/unicode.pf2
+
 
 fetch_i3:
 	rm -rf $(I3CONF_SRC)

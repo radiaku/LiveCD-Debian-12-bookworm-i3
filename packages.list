@@ -137,4 +137,12 @@ xfce4-power-manager
 xfce4-panel
 lxqt-policykit
 
+pavucontrol
+pulseaudio-utils
+pipewire-pulse 
+fonts-noto
+fonts-noto-extra
+fonts-noto-color-emoji
+fonts-font-awesome
+
 
