@@ -89,3 +89,8 @@ grub-efi
 bash-completion
 network-manager
 task-laptop
+fzf
+fd-find
+ripgrep
+tmux
+lazygit
