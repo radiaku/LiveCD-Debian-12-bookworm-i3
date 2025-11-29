@@ -103,5 +103,38 @@ dmenu
 lightdm
 lightdm-gtk-greeter
 lightdm-gtk-greeter-settings
+# --- FILE MANAGER + ALL PLUGINS ---
+thunar
+thunar-archive-plugin
+thunar-media-tags-plugin
+thunar-volman
+thunar-data
+
+# --- THUNAR BACKEND / MOUNT SYSTEM ---
+gvfs
+gvfs-backends
+gvfs-fuse
+udisks2
+policykit-1
+polkitd
+
+# --- NTFS / FAT / EXFAT SUPPORT ---
+ntfs-3g
+dosfstools
+exfatprogs      # newer than exfat-fuse
+exfat-fuse      # optional fallback
+
+# --- ARCHIVE / ZIP SUPPORT ---
+p7zip-full
+p7zip-rar
+unrar-free
+zip
+unzip
+
+xfce4-notifyd
+xfce4-power-manager
+
+xfce4-panel
+lxqt-policykit
 
 
