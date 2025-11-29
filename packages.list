@@ -96,3 +96,8 @@ tmux
 polybar
 rofi
 dmenu
+lightdm
+lightdm-gtk-greeter
+lightdm-gtk-greeter-settings
+
+

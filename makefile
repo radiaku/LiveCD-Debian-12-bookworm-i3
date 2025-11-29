@@ -11,7 +11,7 @@ POLYBAR_REPO = https://github.com/radiaku/polybarconfig.git
 I3CONF_SRC = build/i3config
 POLYBAR_SRC = build/polybarconfig
 
-all: clean prepare fetch_vimrc fetch_i3 fetch_polybar install_vimrc install_i3 install_polybar copy_files build_iso
+all: clean prepare fetch_vimrc fetch_i3 fetch_polybar install_vimrc install_i3 install_polybar install_lightdm copy_files build_iso
 
 prepare:
 	mkdir -p $(SKEL)/.config/i3
@@ -40,10 +40,23 @@ install_vimrc:
 install_i3:
 	mkdir -p $(SKEL)/.config/i3
 	cp -r $(I3CONF_SRC)/* $(SKEL)/.config/i3/
+	echo "exec i3" > $(SKEL)/.xsession
+	echo "exec i3" > $(SKEL)/.xinitrc
+	chmod +x $(SKEL)/.xsession
+	chmod +x $(SKEL)/.xinitrc
 
 install_polybar:
 	mkdir -p $(SKEL)/.config/polybar
 	cp -r $(POLYBAR_SRC)/* $(SKEL)/.config/polybar/
+
+install_lightdm:
+	@echo ">>> Installing LightDM autologin config"
+	mkdir -p config/includes.chroot/etc/lightdm
+	cp lightdm.conf config/includes.chroot/etc/lightdm/lightdm.conf
+
+	@echo ">>> Installing i3 session desktop file"
+	mkdir -p config/includes.chroot/usr/share/xsessions
+	cp i3.desktop config/includes.chroot/usr/share/xsessions/i3.desktop
 
 copy_files:
 	cp .bashrc $(SKEL)/.bashrc
