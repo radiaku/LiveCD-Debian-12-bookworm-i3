@@ -24,3 +24,6 @@ sudo make
 Feel free to change the configurationen fitting to your needs and wishes. There for change the makefile (more information about makefile: https://makefiletutorial.com/), add or remove packages listed inside packages.list or change the configurations for vim (vimrc) and bash (.bashrc, bash_profile).
 
 Feel free to make changes to i3config to fit the system to your needs and wishes.
+
+
+Credit to [ananke](https://codeberg.org/ananke/Live-Debian-12-bookworm-i3)
