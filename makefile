@@ -11,12 +11,25 @@ POLYBAR_REPO = https://github.com/radiaku/polybarconfig.git
 I3CONF_SRC = build/i3config
 POLYBAR_SRC = build/polybarconfig
 
-all: clean prepare fetch_vimrc fetch_i3 fetch_polybar install_vimrc install_i3 install_polybar install_lightdm copy_files build_iso
+all: clean prepare fetch_vimrc fetch_i3 fetch_polybar install_vimrc install_i3 install_polybar install_lightdm install_fonts copy_files build_iso
 
 prepare:
 	mkdir -p $(SKEL)/.config/i3
 	mkdir -p config/includes.chroot/etc/systemd/system
 	mkdir -p build
+
+install_fonts:
+	@echo ">>> Installing Nerd Fonts (Iosevka)"
+
+	# Create destination folder inside LiveCD chroot
+	mkdir -p config/includes.chroot/usr/share/fonts/truetype/IosevkaNerdFont
+
+	# Download ZIP (on host)
+	curl -L -o build/Iosevka.zip \
+		https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Iosevka.zip
+
+	# Unzip into LiveCD filesystem
+	unzip -o build/Iosevka.zip -d config/includes.chroot/usr/share/fonts/truetype/IosevkaNerdFont
 
 fetch_i3:
 	rm -rf $(I3CONF_SRC)
