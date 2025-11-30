@@ -10,6 +10,9 @@ POLYBAR_REPO = https://github.com/radiaku/polybarconfig.git
 
 I3CONF_SRC = build/i3config
 POLYBAR_SRC = build/polybarconfig
+# MIRROR = http://kartolo.sby.datautama.net.id/debian 
+MIRROR=http://mirror.telkomuniversity.ac.id/debian/
+ 
 
 all: clean prepare fetch_vimrc fetch_i3 fetch_polybar install_vimrc install_i3 install_polybar install_lightdm install_fonts install_grub_font copy_files build_iso
 
@@ -96,7 +99,6 @@ copy_files:
 
 build_iso:
 	sudo lb clean --all
-
 	sudo lb config --debug --distribution bookworm \
 		--memtest memtest86+ \
 		--bootappend-live "boot=live component username=radia" \
@@ -106,7 +108,22 @@ build_iso:
 		--hdd-label RADIA-bookworm \
 		--uefi-secure-boot disable \
 		--image-name RADIA-bookworm \
-		--linux-packages "linux-image linux-headers"
+		--linux-packages "linux-image linux-headers" \
+		--mirror-bootstrap $(MIRROR) \
+		--mirror-chroot $(MIRROR) \
+		--mirror-binary $(MIRROR)
+
+
+	# sudo lb config --debug --distribution bookworm \
+	# 	--memtest memtest86+ \
+	# 	--bootappend-live "boot=live component username=radia" \
+	# 	--debian-installer live \
+	# 	--backports true \
+	# 	--archive-areas "main contrib non-free non-free-firmware" \
+	# 	--hdd-label RADIA-bookworm \
+	# 	--uefi-secure-boot disable \
+	# 	--image-name RADIA-bookworm \
+	# 	--linux-packages "linux-image linux-headers"
 
 	echo "debian-installer-launcher" > config/package-lists/installer.list.chroot
 	echo "d-i debian-installer/locale string en_US" > config/includes.installer/preseed.cfg
