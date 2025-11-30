@@ -24,3 +24,4 @@ binary.modified_timestamps
 .lock
 installer_firmware_details.txt
 exclude
+*.zsync
