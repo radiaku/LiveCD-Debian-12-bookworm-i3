@@ -44,6 +44,9 @@ The ISO is produced via `live-build` (see `makefile`). Output is named `RADIA-bo
 
 Full keybindings live in the fetched `~/.config/i3/config` inside the ISO (source repo: `radiaku/i3config`).
 
+## Preview
+![Live session preview showing i3, Polybar, and terminal](ImagePrev.png)
+
 ## Install from the live session
 Run the Debian installer from the live environment:
 ```sh
